@@ -64,29 +64,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Appointment Modal
-const appointmentModal = document.getElementById('appointment-modal');
-
-function openAppointmentModal() {
-    appointmentModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+// WhatsApp Direct Contact
+function openWhatsApp(message = '') {
+    const phone = '5217472194953';
+    const defaultMessage = message || 'Hola, me gustaría agendar una cita en CERCH';
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(defaultMessage)}`;
+    window.open(url, '_blank');
 }
-
-function closeAppointmentModal() {
-    appointmentModal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// Close modal when clicking overlay
-if (appointmentModal) {
-    appointmentModal.querySelector('.modal__overlay')?.addEventListener('click', closeAppointmentModal);
-}
-
-// Close modal with ESC key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && appointmentModal.classList.contains('active')) {
-        closeAppointmentModal();
-    }
-});
 
 // Form Handling
 const contactForm = document.getElementById('contact-form');
@@ -497,43 +481,45 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Usamos un nombre de variable único para estas opciones para evitar conflictos
-const statsObserverOptions = {
-    threshold: 0.5,
-    rootMargin: '0px'
-};
-
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statCards = entry.target.querySelectorAll('.stat-card__number[data-target]');
-            statCards.forEach(card => {
-                const target = parseInt(card.getAttribute('data-target'));
-                // Iniciar animación
-                animateCounter(card, target);
-                
-                // Agregar sufijos (+ o %) después de que termine la animación (2 segundos)
-                setTimeout(() => {
-                    const parent = card.parentElement;
-                    if (parent.querySelector('.stat-card__label').textContent.includes('Experiencia') || 
-                        parent.querySelector('.stat-card__label').textContent.includes('Atendidos')) {
-                        card.textContent += '+';
-                    }
-                    if (parent.querySelector('.stat-card__label').textContent.includes('Satisfacción')) {
-                        card.textContent += '%';
-                    }
-                }, 2000);
-            });
-            // Dejar de observar una vez que se ha activado
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, statsObserverOptions);
-
-// Observe stats section
+// Observe stats section - Inicializar después de que el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     const statsSection = document.querySelector('.stats');
+    
     if (statsSection) {
+        const statsObserverOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statCards = entry.target.querySelectorAll('.stat-card__number[data-target]');
+                    statCards.forEach(card => {
+                        const target = parseInt(card.getAttribute('data-target'));
+                        // Iniciar animación
+                        animateCounter(card, target);
+                        
+                        // Agregar sufijos (+ o %) después de que termine la animación
+                        setTimeout(() => {
+                            const label = card.nextElementSibling;
+                            if (label && label.textContent) {
+                                const labelText = label.textContent;
+                                if (labelText.includes('Experiencia') || labelText.includes('Atendidos') || labelText.includes('Pacientes')) {
+                                    card.textContent = target + '+';
+                                }
+                                if (labelText.includes('Satisfacción')) {
+                                    card.textContent = target + '%';
+                                }
+                            }
+                        }, 2100);
+                    });
+                    // Dejar de observar una vez que se ha activado
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, statsObserverOptions);
+        
         statsObserver.observe(statsSection);
     }
 });

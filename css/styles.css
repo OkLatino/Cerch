@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #006b6a;
-    --primary-dark: #004d4c;
-    --primary-light: #008c8a;
-    --secondary-color: #00a8a8;
+    --primary-color: #00a8a8;
+    --primary-dark: #008585;
+    --primary-light: #00c5c5;
+    --secondary-color: #00d4d4;
     --accent-color: #ffd700;
     --text-dark: #1a1a1a;
     --text-medium: #4a4a4a;
@@ -1586,4 +1586,53 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1.5rem;
     }
+}
+/* WhatsApp Contact Box */
+.contact__whatsapp-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.whatsapp-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.whatsapp-buttons .btn {
+    justify-content: center;
+    font-size: 1.05rem;
+}
+
+.whatsapp-buttons .btn svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .contact__whatsapp-box {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Call Button - High Visibility */
+.btn--call {
+    background: #ffd700 !important;
+    color: #1a1a1a !important;
+    border: 2px solid #ffd700 !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4) !important;
+}
+
+.btn--call:hover {
+    background: #ffed4e !important;
+    color: #000 !important;
+    border-color: #ffed4e !important;
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6) !important;
+    transform: translateY(-2px);
+}
+
+.btn--call svg {
+    stroke: #1a1a1a !important;
 }
