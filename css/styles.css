@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #00a8a8;
-    --primary-dark: #008585;
-    --primary-light: #00c5c5;
-    --secondary-color: #00d4d4;
-    --accent-color: #ffd700;
+    --primary-color: #014F50;
+    --primary-dark: #013838;
+    --primary-light: #016b6c;
+    --secondary-color: #080F40;
+    --accent-color: #FFD700;
     --text-dark: #1a1a1a;
     --text-medium: #4a4a4a;
     --text-light: #7a7a7a;
@@ -1440,8 +1440,10 @@ body {
         background: var(--bg-white);
         flex-direction: column;
         padding: 2rem;
-        transition: var(--transition);
+        transition: left 0.3s ease-in-out;
         box-shadow: var(--shadow-lg);
+        z-index: 1000;
+        overflow-y: auto;
     }
 
     .nav__menu.active {
@@ -1451,10 +1453,42 @@ body {
     .nav__list {
         flex-direction: column;
         width: 100%;
+        gap: 0.5rem;
+    }
+    
+    .nav__item {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav__link {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .nav__cta {
+        width: 100%;
+        margin-top: 1rem;
+        justify-content: center;
     }
 
     .nav__toggle {
         display: flex;
+        z-index: 1001;
+        position: relative;
+    }
+    
+    .nav__toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav__toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
 
     .hero__content,
@@ -1635,4 +1669,210 @@ body {
 
 .btn--call svg {
     stroke: #1a1a1a !important;
+}
+
+/* ==============================================
+   MEJORAS RESPONSIVE PARA MÓVILES
+   ============================================== */
+
+/* Móviles pequeños (320px - 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .hero__title {
+        font-size: 2rem !important;
+        line-height: 1.2;
+    }
+    
+    .hero__subtitle {
+        font-size: 0.875rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .hero__description {
+        font-size: 1rem;
+    }
+    
+    .hero__buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .hero__buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero__trust {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero__trust-item {
+        text-align: center;
+    }
+    
+    .hero__image-card {
+        margin-top: 2rem;
+    }
+    
+    .hero__image-card img {
+        height: 400px !important;
+    }
+    
+    /* Servicios responsive */
+    .services__grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+    
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .service-card__icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-card__title {
+        font-size: 1.25rem;
+    }
+    
+    /* Testimonios responsive */
+    .testimonials__grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+    
+    /* Stats responsive */
+    .stats__grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+    }
+    
+    .stat-card__icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .stat-card__number {
+        font-size: 2.5rem !important;
+    }
+    
+    /* Blog cards responsive */
+    .blog__grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Contact form responsive */
+    .contact__grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .contact__details,
+    .whatsapp-buttons .btn {
+        font-size: 0.95rem;
+    }
+    
+    /* Section headers */
+    .section-header__title {
+        font-size: 1.75rem !important;
+    }
+    
+    .section-header__subtitle {
+        font-size: 0.875rem;
+    }
+    
+    /* Footer responsive */
+    .footer__grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+    
+    .footer__social {
+        justify-content: center;
+    }
+}
+
+/* Tabletas (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero__title {
+        font-size: 2.5rem;
+    }
+    
+    .hero__image-card img {
+        height: 500px;
+    }
+    
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .blog__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Touch targets mejorados para móviles */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 48px;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .nav__link {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav__toggle {
+        min-width: 48px;
+        min-height: 48px;
+        padding: 10px;
+    }
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
+
+/* Mejoras adicionales para el botón hamburguesa en móviles */
+.nav__toggle {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.nav__toggle:active {
+    transform: scale(0.95);
 }
