@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzón de Atención - CERCH</title>
+    <meta name="description" content="Buzón de quejas, sugerencias y felicitaciones de CERCH.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .buzon-section {
+            padding: 8rem 0 4rem;
+            min-height: 100vh;
+            background-color: #f8fffe;
+        }
+
+        .buzon-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .buzon-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .buzon-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .buzon-intro-box {
+            background-color: #e6f7f6;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .privacy-box {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: #0c4a6e;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(12, 124, 110, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .required-star {
+            color: #ef4444;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header" style="background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="../index.html"
+                    style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                    <img src="../images/logo.webp" alt="CERCH Logo" class="nav__logo-img">
+                    <span class="nav__logo-text">CERCH</span>
+                </a>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="../index.html#contacto" class="nav__link">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="buzon-section">
+        <div class="container">
+            <div class="buzon-container">
+                <div class="buzon-header">
+                    <h1 class="buzon-title">Buzón de Atención al Paciente</h1>
+                </div>
+
+                <!-- Introduction Text (Inspired by Image 1) -->
+                <div class="buzon-intro-box">
+                    <p>
+                        Bienvenido al área de Atención al Paciente de CERCH. Si deseas hacer alguna
+                        <strong>sugerencia, inconformidad, felicitación o necesitas orientación</strong> sobre nuestros
+                        servicios,
+                        deberás llenar el siguiente formulario con los datos que se te indican. Posteriormente estaremos
+                        en contacto contigo para dar seguimiento a tu petición.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <form id="buzon-form">
+                    <div class="form-group">
+                        <label class="form-label" for="nombre">Nombre Completo <span
+                                class="required-star">*</span></label>
+                        <input type="text" id="nombre" class="form-input" placeholder="Ingresa tu nombre completo"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="telefono">Teléfono <span class="required-star">*</span></label>
+                        <input type="tel" id="telefono" class="form-input" placeholder="Tu número de teléfono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="correo">Correo Electrónico <span
+                                class="required-star">*</span></label>
+                        <input type="email" id="correo" class="form-input" placeholder="ejemplo@correo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="peticion">Tu Petición / Comentario <span
+                                class="required-star">*</span></label>
+                        <textarea id="peticion" class="form-textarea"
+                            placeholder="Escribe aquí tu queja, sugerencia o felicitación..." required></textarea>
+                    </div>
+
+                    <!-- Privacy Notice (Inspired by Image 2) -->
+                    <div class="privacy-box">
+                        <strong>Aviso de Privacidad:</strong><br><br>
+                        Estimado usuario, es importante que proporciones tus datos de contacto reales para poder
+                        informarte acerca de tu solicitud.
+                        Te sugerimos estar pendiente del correo electrónico y teléfono proporcionados.<br><br>
+                        Tus datos personales son considerados confidenciales y están protegidos conforme a la Ley
+                        Federal de Protección de Datos Personales en Posesión de los Particulares.
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn btn--primary" style="width: 100%;">
+                        Enviar Petición
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="../index.html"
+                            style="color: var(--text-light); text-decoration: none; font-size: 0.9rem;">Cancelar y
+                            volver al inicio</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div
+            style="background: white; padding: 2rem; border-radius: 12px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto;">
+            <h2
+                style="color: var(--primary-color); margin-top: 0; text-align: center; font-family: 'Playfair Display', serif;">
+                Vista Previa</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 1.5rem;">Así es como se verá tu comentario
+                publicado:</p>
+
+            <!-- Card Preview -->
+            <div
+                style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: start; border-bottom: 1px solid #eee; padding-bottom: 0.75rem; margin-bottom: 0.5rem;">
+                    <div>
+                        <h3 id="preview-nombre" style="margin: 0; color: var(--primary-color); font-size: 1.1rem;">
+                            Nombre del Usuario</h3>
+                        <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.25rem;">
+                            <span style="margin-right: 1rem;">📞 <span id="preview-telefono"></span></span>
+                            <span>✉️ <span id="preview-correo"></span></span>
+                        </div>
+                    </div>
+                    <span id="preview-fecha"
+                        style="font-size: 0.8rem; color: #9ca3af; background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 4px;">Fecha
+                        Actual</span>
+                </div>
+                <p id="preview-mensaje" style="margin: 0; color: #374151; font-size: 1rem; line-height: 1.6;">Mensaje...
+                </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <button id="confirm-publish" class="btn btn--primary" style="width: 100%; justify-content: center;">
+                    Confirmar y Publicar
+                </button>
+                <button id="cancel-preview"
+                    style="background: transparent; border: 1px solid #d1d5db; color: #4b5563; padding: 0.75rem; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%;">
+                    Volver a Editar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__bottom">
+                <p>&copy; 2025 CERCH - Centro de Especialidades Renales de Chilpancingo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/buzon.js"></script>
+</body>
+
+</html>

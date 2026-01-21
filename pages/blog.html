@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Salud Renal - CERCH | Artículos y Consejos de Nefrología</title>
-    <meta name="description" content="Lee nuestros artículos sobre salud renal, prevención de enfermedades renales, tratamientos de hemodiálisis y más. Información confiable de especialistas.">
+    <meta name="description"
+        content="Lee nuestros artículos sobre salud renal, prevención de enfermedades renales, tratamientos de hemodiálisis y más. Información confiable de especialistas.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/blog-styles.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <a href="../index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+                <a href="../index.html"
+                    style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
                     <img src="../images/logo.webp" alt="CERCH Logo" class="nav__logo-img">
                     <span class="nav__logo-text">CERCH</span>
                 </a>
             </div>
-            
+
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="../index.html#inicio" class="nav__link">Inicio</a></li>
                     <li class="nav__item"><a href="../index.html#servicios" class="nav__link">Servicios</a></li>
                     <li class="nav__item"><a href="../index.html#nosotros" class="nav__link">Nosotros</a></li>
-                    <li class="nav__item"><a href="blog.html" class="nav__link active">Blog</a></li>
+                    <li class="nav__item"><a href="blog.html" class="nav__link active-link">Blog</a></li>
+                    <li class="nav__item"><a href="buzon.html" class="nav__link">Buzón</a></li>
                     <li class="nav__item"><a href="../index.html#contacto" class="nav__link">Contacto</a></li>
                 </ul>
-                <button class="nav__cta" onclick="window.location.href='../index.html'; setTimeout(() => openAppointmentModal(), 500)">
+                <button class="nav__cta"
+                    onclick="window.location.href='../index.html'; setTimeout(() => openAppointmentModal(), 500)">
                     <span>Agendar Cita</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </button>
             </div>
@@ -55,11 +63,12 @@
                 <p class="blog-hero__description">
                     Artículos escritos por nuestros especialistas para ayudarte a entender y cuidar tu salud renal
                 </p>
-                
+
                 <div class="blog-hero__search">
                     <input type="text" id="blog-search" placeholder="Buscar artículos...">
                     <button type="button" onclick="searchBlog()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
@@ -90,20 +99,23 @@
                 <!-- Featured Article -->
                 <article class="blog-post blog-post--featured" data-category="prevencion">
                     <div class="blog-post__image">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop" alt="10 Hábitos para Mantener tus Riñones Sanos">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop"
+                            alt="10 Hábitos para Mantener tus Riñones Sanos">
                         <div class="blog-post__category">Prevención</div>
                     </div>
                     <div class="blog-post__content">
                         <div class="blog-post__meta">
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                                 Dr. Juan Pérez
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -112,7 +124,8 @@
                                 5 Dic 2025
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
@@ -121,12 +134,16 @@
                         </div>
                         <h2 class="blog-post__title">10 Hábitos Diarios para Mantener tus Riñones Sanos</h2>
                         <p class="blog-post__excerpt">
-                            Los riñones son órganos vitales que filtran desechos y regulan el equilibrio de líquidos en nuestro cuerpo. Descubre las prácticas diarias que pueden prevenir enfermedades renales y mejorar significativamente tu calidad de vida. Desde la hidratación adecuada hasta el control de la presión arterial...
+                            Los riñones son órganos vitales que filtran desechos y regulan el equilibrio de líquidos en
+                            nuestro cuerpo. Descubre las prácticas diarias que pueden prevenir enfermedades renales y
+                            mejorar significativamente tu calidad de vida. Desde la hidratación adecuada hasta el
+                            control de la presión arterial...
                         </p>
-                        <a href="#" class="blog-post__link">
+                        <a href="habitos-rinones-sanos.html" class="blog-post__link">
                             Leer artículo completo
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -135,20 +152,23 @@
                 <!-- Regular Articles -->
                 <article class="blog-post" data-category="sintomas">
                     <div class="blog-post__image">
-                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=500&fit=crop" alt="Síntomas de problemas renales">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=500&fit=crop"
+                            alt="Síntomas de problemas renales">
                         <div class="blog-post__category">Síntomas</div>
                     </div>
                     <div class="blog-post__content">
                         <div class="blog-post__meta">
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                                 Dra. María López
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -159,12 +179,14 @@
                         </div>
                         <h3 class="blog-post__title">Señales de Alerta: Cuándo Consultar a un Nefrólogo</h3>
                         <p class="blog-post__excerpt">
-                            Reconocer los síntomas tempranos de problemas renales puede marcar la diferencia. Aprende a identificar las señales de advertencia que indican que debes consultar a un especialista...
+                            Reconocer los síntomas tempranos de problemas renales puede marcar la diferencia. Aprende a
+                            identificar las señales de advertencia que indican que debes consultar a un especialista...
                         </p>
-                        <a href="#" class="blog-post__link">
+                        <a href="senales-alerta-nefrologo.html" class="blog-post__link">
                             Leer más
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -172,20 +194,23 @@
 
                 <article class="blog-post" data-category="tratamiento">
                     <div class="blog-post__image">
-                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=500&fit=crop" alt="Hemodiálisis información">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=500&fit=crop"
+                            alt="Hemodiálisis información">
                         <div class="blog-post__category">Tratamiento</div>
                     </div>
                     <div class="blog-post__content">
                         <div class="blog-post__meta">
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                                 Dr. Carlos Ramírez
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -196,12 +221,14 @@
                         </div>
                         <h3 class="blog-post__title">Hemodiálisis: Todo lo que Necesitas Saber</h3>
                         <p class="blog-post__excerpt">
-                            Una guía completa sobre el tratamiento de hemodiálisis, cómo funciona, qué esperar durante las sesiones y cómo mejora la calidad de vida de los pacientes...
+                            Una guía completa sobre el tratamiento de hemodiálisis, cómo funciona, qué esperar durante
+                            las sesiones y cómo mejora la calidad de vida de los pacientes...
                         </p>
-                        <a href="#" class="blog-post__link">
+                        <a href="hemodialisis-todo-saber.html" class="blog-post__link">
                             Leer más
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -209,20 +236,23 @@
 
                 <article class="blog-post" data-category="nutricion">
                     <div class="blog-post__image">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop" alt="Dieta para salud renal">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop"
+                            alt="Dieta para salud renal">
                         <div class="blog-post__category">Nutrición</div>
                     </div>
                     <div class="blog-post__content">
                         <div class="blog-post__meta">
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                                 Nutrióloga Ana Torres
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -233,12 +263,14 @@
                         </div>
                         <h3 class="blog-post__title">Alimentación para una Función Renal Óptima</h3>
                         <p class="blog-post__excerpt">
-                            Descubre qué alimentos son beneficiosos para tus riñones y cuáles debes limitar. Plan nutricional recomendado por nuestros especialistas para mantener la salud renal...
+                            Descubre qué alimentos son beneficiosos para tus riñones y cuáles debes limitar. Plan
+                            nutricional recomendado por nuestros especialistas para mantener la salud renal...
                         </p>
-                        <a href="#" class="blog-post__link">
+                        <a href="alimentacion-renal.html" class="blog-post__link">
                             Leer más
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -246,20 +278,23 @@
 
                 <article class="blog-post" data-category="tecnologia">
                     <div class="blog-post__image">
-                        <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&h=500&fit=crop" alt="Tecnología médica en CERCH">
+                        <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&h=500&fit=crop"
+                            alt="Tecnología médica en CERCH">
                         <div class="blog-post__category">Tecnología</div>
                     </div>
                     <div class="blog-post__content">
                         <div class="blog-post__meta">
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                                 Dr. Roberto Sánchez
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -270,12 +305,14 @@
                         </div>
                         <h3 class="blog-post__title">Avances Tecnológicos en Tratamientos Renales</h3>
                         <p class="blog-post__excerpt">
-                            Conoce las últimas innovaciones en equipos de diálisis y cómo la tecnología está mejorando los resultados y la comodidad de los pacientes con enfermedad renal...
+                            Conoce las últimas innovaciones en equipos de diálisis y cómo la tecnología está mejorando
+                            los resultados y la comodidad de los pacientes con enfermedad renal...
                         </p>
-                        <a href="#" class="blog-post__link">
+                        <a href="tecnologia-renal.html" class="blog-post__link">
                             Leer más
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -283,20 +320,23 @@
 
                 <article class="blog-post" data-category="prevencion">
                     <div class="blog-post__image">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop" alt="Ejercicio y salud renal">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop"
+                            alt="Ejercicio y salud renal">
                         <div class="blog-post__category">Prevención</div>
                     </div>
                     <div class="blog-post__content">
                         <div class="blog-post__meta">
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                                 Fisioterapeuta Luis García
                             </span>
                             <span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="16" y1="2" x2="16" y2="6"></line>
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -307,12 +347,14 @@
                         </div>
                         <h3 class="blog-post__title">Ejercicio y Salud Renal: Guía Completa</h3>
                         <p class="blog-post__excerpt">
-                            El ejercicio regular es fundamental para mantener la salud de los riñones. Aprende qué tipo de actividades son más beneficiosas y cómo empezar un programa de ejercicio seguro...
+                            El ejercicio regular es fundamental para mantener la salud de los riñones. Aprende qué tipo
+                            de actividades son más beneficiosas y cómo empezar un programa de ejercicio seguro...
                         </p>
-                        <a href="#" class="blog-post__link">
+                        <a href="ejercicio-renal.html" class="blog-post__link">
                             Leer más
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -343,7 +385,8 @@
                     <input type="email" placeholder="Tu correo electrónico" required>
                     <button type="submit" class="btn btn--primary">
                         Suscribirme
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <line x1="22" y1="2" x2="11" y2="13"></line>
                             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                         </svg>
@@ -362,8 +405,10 @@
                     Consulta con nuestros especialistas y recibe atención personalizada
                 </p>
                 <div class="cta-section__buttons">
-                    <button class="btn btn--primary btn--large" onclick="window.location.href='../index.html'; setTimeout(() => openAppointmentModal(), 500)">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="btn btn--primary btn--large"
+                        onclick="window.location.href='../index.html'; setTimeout(() => openAppointmentModal(), 500)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="16" y1="2" x2="16" y2="6"></line>
                             <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -372,8 +417,11 @@
                         Agendar Consulta
                     </button>
                     <a href="tel:7471160237" class="btn btn--outline btn--large">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
                         </svg>
                         Llamar Ahora
                     </a>
@@ -395,26 +443,33 @@
                         Centro de Especialidades Renales de Chilpancingo. Comprometidos con tu salud renal.
                     </p>
                     <div class="footer__social">
-                        <a href="https://www.facebook.com/share/14Qgq4bXShd/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/14Qgq4bXShd/?mibextid=wwXIfr" target="_blank"
+                            rel="noopener" aria-label="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/hemodialisis.centro?igsh=NTdwNWU4MGwwd2kx" target="_blank" rel="noopener" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <a href="https://www.instagram.com/hemodialisis.centro?igsh=NTdwNWU4MGwwd2kx" target="_blank"
+                            rel="noopener" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <a href="https://www.tiktok.com/@hemodialisis.centro?_r=1&_t=ZS-91UDARhtiB" target="_blank" rel="noopener" aria-label="TikTok">
+                        <a href="https://www.tiktok.com/@hemodialisis.centro?_r=1&_t=ZS-91UDARhtiB" target="_blank"
+                            rel="noopener" aria-label="TikTok">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                             </svg>
                         </a>
-                        <a href="https://youtube.com/shorts/4IwTEHFdEgY?si=C2iWAKDd5sdiZKP0" target="_blank" rel="noopener" aria-label="YouTube">
+                        <a href="https://youtube.com/shorts/4IwTEHFdEgY?si=C2iWAKDd5sdiZKP0" target="_blank"
+                            rel="noopener" aria-label="YouTube">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                             </svg>
                         </a>
                     </div>
@@ -437,6 +492,9 @@
                         <li><a href="../index.html#nosotros">Nosotros</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="../index.html#contacto">Contacto</a></li>
+                        <li><a href="buzon.html">Buzón de Quejas</a></li>
+                        <li><a href="gestor-quejas.html" style="color: #6b7280; font-size: 0.85rem;">Gestor de Quejas
+                                (Admin)</a></li>
                     </ul>
                 </div>
 
@@ -444,24 +502,33 @@
                     <h4 class="footer__title">Contacto</h4>
                     <ul class="footer__contact">
                         <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
                             </svg>
                             <a href="tel:7471160237">747 116 0237</a>
                         </li>
                         <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            <a href="/cdn-cgi/l/email-protection#44272b2a302527302b042721373421272d25282d202520213736212a252821376a272b296a293c"><span class="__cf_email__" data-cfemail="a3c0cccdd7c2c0d7cce3c0c6d0d3c6c0cac2cfcac7c2c7c6d0d1c6cdc2cfc6d08dc0ccce8dcedb">[email&#160;protected]</span></a>
+                            <a
+                                href="/cdn-cgi/l/email-protection#44272b2a302527302b042721373421272d25282d202520213736212a252821376a272b296a293c"><span
+                                    class="__cf_email__"
+                                    data-cfemail="a3c0cccdd7c2c0d7cce3c0c6d0d3c6c0cac2cfcac7c2c7c6d0d1c6cdc2cfc6d08dc0ccce8dcedb">[email&#160;protected]</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer__bottom">
-                <p>&copy; 2025 CERCH - Centro de Especialidades Renales de Chilpancingo. Todos los derechos reservados.</p>
+                <p>&copy; 2025 CERCH - Centro de Especialidades Renales de Chilpancingo. Todos los derechos reservados.
+                </p>
                 <div class="footer__legal">
                     <a href="#">Política de Privacidad</a>
                     <a href="#">Términos y Condiciones</a>
