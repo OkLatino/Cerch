@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volante Buzón Virtual - CERCH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* CERCH Colors */
+            --primary: #014F50;
+            --primary-dark: #013838;
+            --secondary: #080F40;
+            --accent: #FFD700;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e5e5e5;
+            font-family: 'Source Sans 3', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .flyer {
+            width: 216mm;
+            /* Letter size approx width usually 216mm */
+            height: 279mm;
+            /* Letter size height */
+            background: white;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Banner */
+        .header-banner {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .header-text {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--primary-dark);
+            margin: 0;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--secondary);
+            margin: 0;
+            line-height: 1;
+            margin-bottom: 3rem;
+        }
+
+        .title-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 1rem;
+        }
+
+        /* QR Container */
+        .qr-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            border: 4px dashed var(--primary);
+            /* Optional visual frame */
+            border-radius: 20px;
+        }
+
+        .qr-code {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-logo-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            /* Adjust based on logo readability */
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-logo-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Call to Action Text */
+        .cta-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-text {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-highlight {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        /* Bottom Banner */
+        .footer-banner {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            height: 60px;
+            filter: brightness(0) invert(1);
+            /* Make logo white if needed, or remove filter */
+        }
+
+        .footer-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        /* Print styles */
+        @media print {
+            @page {
+                size: auto;
+                margin: 0mm;
+            }
+
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                /* Prevent scroll/multipage */
+            }
+
+            .flyer {
+                box-shadow: none;
+                width: 100%;
+                height: 100vh;
+                /* Use viewport height to fit page */
+                border: none;
+                margin: 0;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            /* Scale content slightly if needed to ensure it fits safe areas */
+            .content {
+                padding: 1rem;
+                /* Reduce padding for print */
+                transform: scale(0.95);
+                transform-origin: center;
+            }
+
+            .qr-container {
+                margin-bottom: 2rem;
+                /* Reduce margin */
+            }
+        }
+
+        /* Floating Download Button */
+        .download-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background-color: var(--primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Download/Print Button -->
+    <button class="download-btn no-print" onclick="window.print()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Descargar / Imprimir
+    </button>
+
+    <div class="flyer">
+        <div class="header-banner">
+            <h2 class="header-text">Escanea el código QR con tu celular</h2>
+        </div>
+
+        <div class="content">
+            <h1 class="title">
+                Buzón
+                <svg class="title-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" color="#014F50">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </h1>
+            <h2 class="subtitle">Virtual</h2>
+
+            <div class="qr-container">
+                <!-- QR Code points to: https://cerchgro.com.mx/pages/buzon.html -->
+                <!-- Using higher Error Correction Level (ecc=H) to allow logo overlay -->
+                <img class="qr-code"
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https://cerchgro.com.mx/pages/buzon.html&color=014F50&ecc=H"
+                    alt="QR Code">
+
+                <div class="qr-logo-overlay">
+                    <img src="../images/logosinfondo.webp" alt="CERCH Logo">
+                </div>
+            </div>
+
+            <h3 class="cta-text">¡Nos interesa tu opinión!</h3>
+
+            <p class="info-text">
+                Si lo prefieres, márcanos al:
+                <span class="phone-highlight">747 116 0237</span>
+            </p>
+        </div>
+
+        <div class="footer-banner">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <img src="../images/logo.webp" alt="CERCH" style="height: 60px; border-radius: 8px;">
+                <div style="line-height: 1.2;">
+                    <strong>CERCH</strong><br>
+                    <span style="font-size: 0.8rem;">Centro de Especialidades Renales</span>
+                </div>
+            </div>
+            <div class="footer-info">
+                www.cerchgro.com.mx
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
