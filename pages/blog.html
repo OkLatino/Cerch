@@ -532,3 +532,58 @@
                 <div class="footer__legal">
                     <a href="#">Política de Privacidad</a>
                     <a href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Nav Script -->
+    <script src="../js/script.js"></script>
+
+    <script>
+        // Simple search functionality
+        function searchBlog() {
+            const searchTerm = document.getElementById('blog-search').value.toLowerCase();
+            const posts = document.querySelectorAll('.blog-post');
+
+            posts.forEach(post => {
+                const title = post.querySelector('.blog-post__title').textContent.toLowerCase();
+                const excerpt = post.querySelector('.blog-post__excerpt').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    post.classList.remove('hidden');
+                } else {
+                    post.classList.add('hidden');
+                }
+            });
+        }
+
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+                const posts = document.querySelectorAll('.blog-post');
+
+                posts.forEach(post => {
+                    if (category === 'all' || post.dataset.category === category) {
+                        post.classList.remove('hidden');
+                    } else {
+                        post.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Load more functionality (mock)
+        function loadMorePosts() {
+            alert('Esta funcionalidad se implementará pronto con más artículos.');
+        }
+    </script>
+</body>
+
+</html>
