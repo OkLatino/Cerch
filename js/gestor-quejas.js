@@ -1,26 +1,27 @@
+import { db } from './firebase-config.js';
+import { collection, onSnapshot, query, orderBy, doc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+const COLLECTION_NAME = 'quejas';
+const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000;
+
 document.addEventListener('DOMContentLoaded', () => {
-    const STORAGE_KEY = 'cerch_complaints';
-    const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000;
     const tableBody = document.getElementById('admin-complaints-list');
     const emptyState = document.getElementById('empty-state');
     const modal = document.getElementById('edit-modal');
     const editForm = document.getElementById('edit-form');
 
-    // Load and render
-    renderTable();
+    // Subscribe to updates in real-time
+    const q = query(collection(db, COLLECTION_NAME), orderBy("fecha", "desc"));
 
-    function getAllComplaints() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        return stored ? JSON.parse(stored) : [];
-    }
+    onSnapshot(q, (snapshot) => {
+        let complaints = [];
+        snapshot.forEach((doc) => {
+            complaints.push({ id: doc.id, ...doc.data() });
+        });
+        renderTable(complaints);
+    });
 
-    function saveAllComplaints(complaints) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(complaints));
-        renderTable();
-    }
-
-    function renderTable() {
-        const complaints = getAllComplaints();
+    function renderTable(complaints) {
         tableBody.innerHTML = '';
 
         if (complaints.length === 0) {
@@ -32,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = Date.now();
 
         complaints.forEach(c => {
-            const date = new Date(c.fecha).toLocaleDateString() + ' ' + new Date(c.fecha).toLocaleTimeString();
-            const isOld = (now - new Date(c.fecha).getTime()) > ONE_MONTH_MS;
+            const date = c.fecha ? new Date(c.fecha).toLocaleDateString() + ' ' + new Date(c.fecha).toLocaleTimeString() : 'N/A';
+            const isOld = c.fecha ? (now - new Date(c.fecha).getTime()) > ONE_MONTH_MS : false;
 
             const tr = document.createElement('tr');
             tr.className = 'complaint-row';
@@ -51,29 +52,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     </span>
                 </td>
                 <td>
-                    <button class="action-btn btn-edit" onclick="openEdit(${c.id})">Editar</button>
-                    <button class="action-btn btn-delete" onclick="deleteComplaint(${c.id})">Borrar</button>
+                    <button class="action-btn btn-edit" data-id="${c.id}">Editar</button>
+                    <button class="action-btn btn-delete" onclick="window.deleteComplaint('${c.id}')">Borrar</button>
                 </td>
             `;
+
+            // Add event listener for edit button manually to avoid string implementation issues
+            const editBtn = tr.querySelector('.btn-edit');
+            editBtn.onclick = () => window.openEdit(c.id, c);
+
             tableBody.appendChild(tr);
         });
     }
 
     // --- Delete Logic ---
-    window.deleteComplaint = (id) => {
+    window.deleteComplaint = async (id) => {
         if (confirm('¿Estás seguro de que quieres eliminar esta queja permanentemente?')) {
-            const complaints = getAllComplaints().filter(c => c.id !== id);
-            saveAllComplaints(complaints);
+            try {
+                await deleteDoc(doc(db, COLLECTION_NAME, id));
+                // No need to manually rerender; onSnapshot will trigger
+            } catch (error) {
+                console.error("Error deleting document: ", error);
+                alert("Error al borrar el documento.");
+            }
         }
     };
 
     // --- Edit Logic ---
-    window.openEdit = (id) => {
-        const complaints = getAllComplaints();
-        const complaint = complaints.find(c => c.id === id);
-        if (!complaint) return;
+    window.openEdit = (id, complaint) => {
+        if (!complaint) return; // Should pass object to avoid extra fetches
 
-        document.getElementById('edit-id').value = complaint.id;
+        document.getElementById('edit-id').value = id;
         document.getElementById('edit-nombre').value = complaint.nombre;
         document.getElementById('edit-telefono').value = complaint.telefono;
         document.getElementById('edit-correo').value = complaint.correo;
@@ -87,21 +96,28 @@ document.addEventListener('DOMContentLoaded', () => {
         editForm.reset();
     };
 
-    editForm.addEventListener('submit', (e) => {
+    editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const id = parseInt(document.getElementById('edit-id').value);
-        const complaints = getAllComplaints();
-        const index = complaints.findIndex(c => c.id === id);
+        const id = document.getElementById('edit-id').value;
+        const submitBtn = editForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Guardando...";
 
-        if (index !== -1) {
-            complaints[index].nombre = document.getElementById('edit-nombre').value;
-            complaints[index].telefono = document.getElementById('edit-telefono').value;
-            complaints[index].correo = document.getElementById('edit-correo').value;
-            complaints[index].mensaje = document.getElementById('edit-mensaje').value;
-            // Optionally update date? No, keep original date.
-
-            saveAllComplaints(complaints);
+        try {
+            const complaintRef = doc(db, COLLECTION_NAME, id);
+            await updateDoc(complaintRef, {
+                nombre: document.getElementById('edit-nombre').value,
+                telefono: document.getElementById('edit-telefono').value,
+                correo: document.getElementById('edit-correo').value,
+                mensaje: document.getElementById('edit-mensaje').value
+            });
             closeModal();
+        } catch (error) {
+            console.error("Error updating document: ", error);
+            alert("Error al editar la queja.");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Guardar Cambios";
         }
     });
 
