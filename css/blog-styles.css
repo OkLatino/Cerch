@@ -321,8 +321,16 @@
     }
 
     .newsletter-form {
-        min-width: auto;
+        min-width: unset;
+        /* Remove min-width constraint completely */
         width: 100%;
+        flex-direction: column;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+        /* Remove extra padding if any */
     }
 
     .categories-filter {
