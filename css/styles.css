@@ -296,6 +296,13 @@ body {
 
 /* Ajustes Responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding-bottom: 160px;
+        /* Increase space for scroll indicator */
+        align-items: center;
+        /* Ensure vertical centering */
+    }
+
     .hero__content {
         justify-content: center;
         /* En celular centramos todo */
@@ -314,9 +321,52 @@ body {
     }
 
     .hero__trust {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        flex-wrap: nowrap !important;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .hero__trust-item {
+        align-items: center;
+        flex: 1;
+        /* Distribute space equally */
+        min-width: 0;
+        /* Allow shrinking if needed */
+    }
+
+    .hero__trust-item {
+        align-items: center;
+        /* Center content */
+    }
+
+    .hero__trust-number {
+        font-size: 1.5rem;
+        /* Smaller numbers on mobile */
+    }
+
+    .hero__trust-label {
+        font-size: 0.75rem;
+        /* Smaller text */
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .urgency-banner__content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .urgency-banner__btn {
+        width: 100%;
+        /* Full width button for better touch target */
+        max-width: 300px;
+        /* But not too wide on tablets */
     }
 }
 
@@ -1455,18 +1505,18 @@ body {
         width: 100%;
         gap: 0.5rem;
     }
-    
+
     .nav__item {
         width: 100%;
         border-bottom: 1px solid var(--border-color);
     }
-    
+
     .nav__link {
         display: block;
         padding: 1rem;
         font-size: 1.1rem;
     }
-    
+
     .nav__cta {
         width: 100%;
         margin-top: 1rem;
@@ -1478,15 +1528,15 @@ body {
         z-index: 1001;
         position: relative;
     }
-    
+
     .nav__toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
-    
+
     .nav__toggle.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .nav__toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
@@ -1621,6 +1671,7 @@ body {
         gap: 1.5rem;
     }
 }
+
 /* WhatsApp Contact Box */
 .contact__whatsapp-box {
     background: white;
@@ -1680,128 +1731,128 @@ body {
     .container {
         padding: 0 1rem;
     }
-    
+
     .hero {
         min-height: auto;
         padding: 100px 0 60px;
     }
-    
+
     .hero__title {
         font-size: 2rem !important;
         line-height: 1.2;
     }
-    
+
     .hero__subtitle {
         font-size: 0.875rem;
         padding: 0.4rem 0.8rem;
     }
-    
+
     .hero__description {
         font-size: 1rem;
     }
-    
+
     .hero__buttons {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
     }
-    
+
     .hero__buttons .btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .hero__trust {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .hero__trust-item {
         text-align: center;
     }
-    
+
     .hero__image-card {
         margin-top: 2rem;
     }
-    
+
     .hero__image-card img {
         height: 400px !important;
     }
-    
+
     /* Servicios responsive */
     .services__grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
     }
-    
+
     .service-card {
         padding: 2rem 1.5rem;
     }
-    
+
     .service-card__icon {
         width: 60px;
         height: 60px;
     }
-    
+
     .service-card__title {
         font-size: 1.25rem;
     }
-    
+
     /* Testimonios responsive */
     .testimonials__grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
     }
-    
+
     /* Stats responsive */
     .stats__grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
     }
-    
+
     .stat-card {
         padding: 1.5rem;
     }
-    
+
     .stat-card__icon {
         width: 60px;
         height: 60px;
     }
-    
+
     .stat-card__number {
         font-size: 2.5rem !important;
     }
-    
+
     /* Blog cards responsive */
     .blog__grid {
         grid-template-columns: 1fr !important;
     }
-    
+
     /* Contact form responsive */
     .contact__grid {
         grid-template-columns: 1fr !important;
     }
-    
+
     .contact__details,
     .whatsapp-buttons .btn {
         font-size: 0.95rem;
     }
-    
+
     /* Section headers */
     .section-header__title {
         font-size: 1.75rem !important;
     }
-    
+
     .section-header__subtitle {
         font-size: 0.875rem;
     }
-    
+
     /* Footer responsive */
     .footer__grid {
         grid-template-columns: 1fr !important;
         gap: 2rem;
     }
-    
+
     .footer__social {
         justify-content: center;
     }
@@ -1812,23 +1863,23 @@ body {
     .hero__title {
         font-size: 2.5rem;
     }
-    
+
     .hero__image-card img {
         height: 500px;
     }
-    
+
     .services__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .testimonials__grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stats__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .blog__grid {
         grid-template-columns: 1fr;
     }
@@ -1840,13 +1891,13 @@ body {
         min-height: 48px;
         padding: 0.875rem 1.5rem;
     }
-    
+
     .nav__link {
         min-height: 48px;
         display: flex;
         align-items: center;
     }
-    
+
     .nav__toggle {
         min-width: 48px;
         min-height: 48px;
@@ -1856,6 +1907,7 @@ body {
 
 /* Prevenir zoom en inputs en iOS */
 @media (max-width: 768px) {
+
     input[type="text"],
     input[type="email"],
     input[type="tel"],
@@ -1875,4 +1927,17 @@ body {
 
 .nav__toggle:active {
     transform: scale(0.95);
+}
+
+/* FIX FINAL MOVIL: Separación para 'Descubre más' */
+@media (max-width: 768px) {
+    .hero {
+        padding-bottom: 98px !important;
+        /* Punto medio */
+    }
+
+    .hero__scroll {
+        bottom: 20px !important;
+        /* Pegado al borde inferior */
+    }
 }
